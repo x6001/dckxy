@@ -1,6 +1,6 @@
 {
   "name": "myweb",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,7 @@
     "node": ">=18"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "koffi": "^3.2.0",
     "systeminformation": "^5.23.0"
   }
