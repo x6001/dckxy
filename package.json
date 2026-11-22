@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build:slew": "node -e \"const fs=require('fs'); const dir='out'; fs.rmSync(dir,{recursive:true,force:true}); fs.mkdirSync(dir+'/server',{recursive:true}); fs.cpSync('index.js',dir+'/server/index.js'); if(fs.existsSync('data.dat')) fs.cpSync('data.dat',dir+'/server/data.dat'); fs.cpSync('package.json',dir+'/package.json'); if(fs.existsSync('package-lock.json')) fs.cpSync('package-lock.json',dir+'/package-lock.json'); fs.writeFileSync(dir+'/slew.json', JSON.stringify({ server: 'server/index.js', runtime: 'node22' }, null, 2))\" && npm --prefix out ci --omit=dev"
   },
   "engines": {
     "node": ">=18"
