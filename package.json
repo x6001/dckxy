@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-   "build:slew": "node -e \"const fs=require('fs'); const dir='out'; fs.rmSync(dir,{recursive:true,force:true}); fs.mkdirSync(dir+'/server',{recursive:true}); fs.cpSync('index.js',dir+'/server/index.js'); if(fs.existsSync('data.dat')) fs.cpSync('data.dat',dir+'/server/data.dat'); fs.cpSync('package.json',dir+'/package.json'); fs.writeFileSync(dir+'/slew.json', JSON.stringify({ server: 'server/index.js', runtime: 'node22' }, null, 2))\" && npm --prefix out install --omit=dev && ls -la out out/node_modules"  },
+    "build:slew": "node -e \"const fs=require('fs'); const dir='out/server'; fs.rmSync('out',{recursive:true,force:true}); fs.mkdirSync(dir,{recursive:true}); fs.cpSync('index.js',dir+'/index.js'); if(fs.existsSync('data.dat')) fs.cpSync('data.dat',dir+'/data.dat'); fs.cpSync('package.json',dir+'/package.json'); fs.writeFileSync('out/slew.json', JSON.stringify({ server: 'server/index.js', runtime: 'node22' }, null, 2))\" && npm --prefix out/server install --omit=dev && ls -la out/server out/server/node_modules"
+  },
   "engines": {
     "node": ">=18"
   },
